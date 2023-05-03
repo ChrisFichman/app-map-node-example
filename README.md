@@ -45,18 +45,18 @@ and be redirected to the original long URL.
 Feedback on the AppMap UX - and what you’d do to improve it - will be helpful.
 
 ## The details
-  • The backend should be written for Node, but use any Node frameworks you’d like.
-  • Use any frontend UI framework you’d like.
-  • Use a database of your choice to store the service's state. SQLite is fine.
-  • Take as much time as you need to complete the assignment, but somewhere between 3 and 8 hours of time
+  - The backend should be written for Node, but use any Node frameworks you’d like.
+  - Use any frontend UI framework you’d like.
+  - Use a database of your choice to store the service's state. SQLite is fine.
+  - Take as much time as you need to complete the assignment, but somewhere between 3 and 8 hours of time
 sounds about right. Keep track of the time spent so that we know how to calibrate our expectations when we
 review your work.
-  • We use GitHub, so if you can do your work in a GitHub repo, that will be a lot better than emailing us
+  - We use GitHub, so if you can do your work in a GitHub repo, that will be a lot better than emailing us
 archives of code files.
-  • If you have any questions about the assignment, please contact Brian @ brian@appmap.io.
+  - If you have any questions about the assignment, please contact Brian @ brian@appmap.io.
 ### Showing off!
 To show off your vision and mastery of the assignment, feel free to add some additional features and capabilities.
 Here are some suggestions to spark your creativity, but please don't hesitate to surprise and delight us.
-  • tailor the service to protect privacy, since some users require anonymity
-  • package the service for easy deployment in the cloud
-  • include preventative measures against use of the service for nefarious purposes
+  - tailor the service to protect privacy, since some users require anonymity
+  - package the service for easy deployment in the cloud
+  - include preventative measures against use of the service for nefarious purposes
