@@ -26,10 +26,66 @@ Basic node service utilizing app map.
 - Very basic url shortener. No accounts or sensitive data to worry about.
 - AWS Secrets
 
+# Installation and Local Development Environment Setup (MacOS - Intel)
+## Clean environment setup
+### Install xcode
+```bash
+xcode-select --install
+```
+### [Install brew](https://docs.brew.sh/Installation) and utils
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+brew install wget
+```
 
-## Original Prompt
+### [Install vscode]
+```bash
+brew install --cask visual-studio-code
+```
 
-### A URL Shortener
+### Install rancher (any container engine will work)
+- May have to ensure docker-cli is not installed
+- Go here and follow [installation instructions](https://docs.rancherdesktop.io/getting-started/installation/)
+- Select latest, non-experimental build (with auto updater)
+- On install choose to enable kubernetes and dockerd (moby) runtime, and automatic path configuration
+- When prompted, run with administrator access
+
+### Install serverless
+```bash
+brew install serveless
+```
+
+### (WIP) Setup vs code and development container
+```bash
+
+```
+
+# Development - yarn commands
+
+## Install - install dependencies
+```bash
+yarn install
+```
+## Build - build code
+```bash
+yarn build
+```
+## develop - watch, auto-rebuild and deploy code locally
+```bash
+yarn dev
+```
+## test - run tests
+```bash
+yarn test
+```
+## run - deploy and run code locally
+```bash
+yarn run
+```
+
+# Original Prompt
+
+## A URL Shortener
 Your task is to build an application which creates short URLs from long ones.
 ### Background
 We often run into situations where long URLs aren't easy to email, tweet, or otherwise send to others. The most basic
