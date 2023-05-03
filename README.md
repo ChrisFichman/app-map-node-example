@@ -51,9 +51,7 @@ brew install --cask visual-studio-code
 - When prompted, run with administrator access
 
 ### (WIP) Setup vs code and development container
-```bash
-
-```
+- After installing vscode and cloning this repo, open the repo in vscode, and install recommended extensions.
 
 # Development - yarn commands
 
