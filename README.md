@@ -50,11 +50,6 @@ brew install --cask visual-studio-code
 - On install choose to enable kubernetes and dockerd (moby) runtime, and automatic path configuration
 - When prompted, run with administrator access
 
-### Install serverless
-```bash
-brew install serveless
-```
-
 ### (WIP) Setup vs code and development container
 ```bash
 
