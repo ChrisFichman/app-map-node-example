@@ -67,32 +67,32 @@ brew install aws-cdk aws/tap/aws-sam-cli
 brew install typescript yarn angular-cli
 ```
 
-### (WIP) Setup vs code and development container
-- After installing vscode and cloning this repo, open the repo in vscode, and install recommended extensions.
+## Developing and running the server
 
+### Start the database (first time only)
+```
+echo "PG_USER=\"postgres\"\nPG_PASS=\"super-appMapFtw\"" >> .env
+docker compose up
+```
 
-# Development - yarn commands
+### Add .env file for local server user
+```
+cd server
+echo "PG_USER=\"us_server\"\nPG_PASS=\"appMapFtw\"" >> .env
+```
 
-## Install - install dependencies
+### Watch and compile
 ```bash
-yarn install
+cd server && tsc --watch
 ```
-## Build - build code
+
+### Run Serverless api offline
 ```bash
-yarn build
+cd server && serverless offline start
 ```
-## develop - watch, auto-rebuild and deploy code locally
-```bash
-yarn dev
-```
-## test - run tests
-```bash
-yarn test
-```
-## run - deploy and run code locally
-```bash
-yarn run
-```
+
+### Test API using postman (collection included)
+Load the included postman collection (server/postman) into your postman client to test the API
 
 # Original Prompt
 

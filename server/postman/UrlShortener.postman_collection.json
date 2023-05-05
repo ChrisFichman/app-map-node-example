@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "d03515c1-ed2b-4d6f-afed-12817bd767f2",
+		"name": "UrlShortener",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "412461"
+	},
+	"item": [
+		{
+			"name": "CreateUrl",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"origUrl\":\"http://google.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/url?origUrl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"url"
+					],
+					"query": [
+						{
+							"key": "origUrl",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ReadUrl",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/LTEzMDcxMzU4OTQ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"LTEzMDcxMzU4OTQ"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
