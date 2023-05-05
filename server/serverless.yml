@@ -1,14 +1,35 @@
 service: url-shortener
 frameworkVersion: '3'
+useDotenv: true
+
+plugins: 
+  - serverless-offline
+  - serverless-plugin-typescript
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs16.x
+  logs: 
+    httpApi: true
+  environment:
+    PG_PASS: ${env:PG_PASS}
+    PG_USER: ${env:PG_USER}
 
 functions:
-  api:
-    handler: index.handler
+  getUrl:
+    handler: "dist/handlers/urlRead.handler"
     events:
       - httpApi:
-          path: /
+          path: /{shortUrl}
           method: get
+  createUrl:
+    handler: "dist/handlers/urlCreate.handler"
+    events:
+      - httpApi:
+          path: /url
+          method: post
+          request: 
+            schemas:
+              application/json: ${file(./schemas/create_url_request.json)}
+              name: UrlCreateModel
+              description: 'Validation model for creating URLs'

@@ -1,0 +1,14 @@
+	
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Create shortUrl",
+  "required": ["origUrl"],
+  "properties": {
+    "origUrl": {
+      "type": "string",
+      "title": "Original URL to be shortened"
+    }
+  }
+}
