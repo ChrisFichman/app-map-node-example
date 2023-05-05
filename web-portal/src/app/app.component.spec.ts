@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'url-shortener'`, () => {
+  it(`should have as title 'web-portal'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('url-shortener');
+    expect(app.title).toEqual('web-portal');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('url-shortener app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('web-portal app is running!');
   });
 });
