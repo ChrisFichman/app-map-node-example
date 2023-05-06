@@ -1,0 +1,16 @@
+name: server
+packages:
+  - path: .build/dist/config
+  - path: .build/dist/handlers
+  - path: .build/dist/helpers
+  - path: .build/dist/services
+  - path: dist/config
+  - path: dist/handlers
+  - path: dist/helpers
+  - path: dist/services
+  - path: src/config
+  - path: src/handlers
+  - path: src/helpers
+  - path: src/services
+language: javascript
+appmap_dir: tmp/appmap
