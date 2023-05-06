@@ -11,13 +11,20 @@ export class UrlService {
     host: "http://localhost:3000",
   }
   routes = {
-    readUrl : this.backendConfig.host+"/",
-    createUrl : this.backendConfig.host+"/url"
+    url : this.backendConfig.host+"/url",
   }
   constructor(private http: HttpClient) { }
 
   createShortUrl(origUrl : string) : Observable<any> {
-    return this.http.post(this.routes.createUrl, {origUrl:origUrl}, { observe : 'response' })
+    return this.http.post(this.routes.url, {origUrl:origUrl}, { observe : 'response' })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getOriginalUrl(shortUrl : string) : Observable<any> {
+    const path = new URL(shortUrl).pathname;
+    return this.http.get(this.routes.url+path, { observe : 'response' })
       .pipe(
         catchError(this.handleError)
       );

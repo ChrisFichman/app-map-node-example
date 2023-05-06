@@ -19,7 +19,7 @@
   </mat-card-content>
 </mat-card>
 
-<mat-card style="margin:10px" *ngIf="submitted == true || shortUrl !== ''">
+<mat-card class="create-card" *ngIf="submitted == true || shortUrl !== ''">
   <mat-card-content>
     <p *ngIf="shortUrl">
       Here's your shortlink: <a href="{{shortUrl}}">"{{shortUrl}}"</a>
