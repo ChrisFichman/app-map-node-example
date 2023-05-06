@@ -12,8 +12,8 @@ authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
 
 # TL;DR! Run the thang!
 ```bash
-yarn install;
-tsc;
+yarn install
+tsc
 sls offline start
 ```
 
