@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Form, FormBuilder } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { UrlService } from '../services/url.service';
 
 @Component({

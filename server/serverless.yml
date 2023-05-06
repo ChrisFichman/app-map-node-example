@@ -20,7 +20,7 @@ functions:
     handler: "dist/handlers/urlRead.handler"
     events:
       - httpApi:
-          path: /{shortUrl}
+          path: /url/{shortUrl}
           method: get
           cors: false
   createUrl:

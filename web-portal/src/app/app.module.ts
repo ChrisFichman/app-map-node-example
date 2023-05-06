@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

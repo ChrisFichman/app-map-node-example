@@ -16,14 +16,17 @@
       </mat-form-field> 
       <button mat-raised-button type="submit" color="primary">Corti!</button>
     </form>
-
-    <mat-card style="margin:10px" *ngIf="submitted == true || shortUrl !== ''">
-      <mat-card-content>
-        <p *ngIf="shortUrl">
-          Here's your shortlink: <a href="{{shortUrl}}">{{shortUrl}}</a>
-        </p>
-        <mat-spinner *ngIf="submitted == true"></mat-spinner>
-      </mat-card-content>
-    </mat-card>
   </mat-card-content>
+</mat-card>
+
+<mat-card style="margin:10px" *ngIf="submitted == true || shortUrl !== ''">
+  <mat-card-content>
+    <p *ngIf="shortUrl">
+      Here's your shortlink: <a href="{{shortUrl}}">"{{shortUrl}}"</a>
+    </p>
+    <mat-spinner *ngIf="submitted == true"></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button [cdkCopyToClipboard]="shortUrl"><mat-icon>content_copy</mat-icon>Copy Pasta!</button>
+  </mat-card-actions>
 </mat-card>
