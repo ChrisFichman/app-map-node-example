@@ -1,0 +1,32 @@
+<mat-card class="create-card">
+  <mat-card-header>
+    <mat-card-title>Create a shortened link</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Enter your chonker of a link, and then click "Corti!"
+    </p>
+    <form [formGroup]="linkForm" (submit)="onSubmit()">
+      <mat-form-field class="original-link-field" appearance="fill">
+        <mat-label>Original Link</mat-label>
+        <input matInput placeholder="{{linkPlaceholder}}" id="orig-url" type="url" formControlName="origUrl">
+        <mat-hint>
+          Link must start with protocol, i.e. "https://".
+        </mat-hint>
+      </mat-form-field> 
+      <button mat-raised-button type="submit" color="primary">Corti!</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="create-card" *ngIf="submitted == true || shortUrl !== ''">
+  <mat-card-content>
+    <p *ngIf="shortUrl">
+      Here's your shortlink: <a href="{{shortUrl}}">"{{shortUrl}}"</a>
+    </p>
+    <mat-spinner *ngIf="submitted == true"></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button [cdkCopyToClipboard]="shortUrl"><mat-icon>content_copy</mat-icon>Copy Pasta!</button>
+  </mat-card-actions>
+</mat-card>

@@ -32,6 +32,7 @@ Basic node service utilizing app map.
 ```bash
 xcode-select --install
 ```
+
 ### [Install brew](https://docs.brew.sh/Installation) and utils
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -43,40 +44,55 @@ brew install wget
 brew install --cask visual-studio-code
 ```
 
-### Install rancher (any container engine will work)
+### Install rancher (any container engine will work - may not need with codespaces)
 - May have to ensure docker-cli is not installed
 - Go here and follow [installation instructions](https://docs.rancherdesktop.io/getting-started/installation/)
 - Select latest, non-experimental build (with auto updater)
 - On install choose to enable kubernetes and dockerd (moby) runtime, and automatic path configuration
 - When prompted, run with administrator access
 
-### (WIP) Setup vs code and development container
+### Install nvm
 ```bash
-
+brew install nvm &&
+echo -e "export NVM_DIR=\"$HOME/.nvm\"\n[ -s \"/usr/local/opt/nvm/nvm.sh\" ] && \. \"/usr/local/opt/nvm/nvm.sh\"  # This loads nvm\n[ -s \"/usr/local/opt/nvm/etc/bash_completion.d/nvm\" ] && \. \"/usr/local/opt/nvm/etc/bash_completion.d/nvm\"  # This loads nvm bash_completion" >> ~/.bashrc &&
+source ~/.bashrc
+nvm install 16
+nvm alias default 16
+nvm use default
 ```
 
-# Development - yarn commands
+### Install homebrew packages for development
+```bash
+brew install aws-cdk aws/tap/aws-sam-cli
+brew install typescript yarn angular-cli
+```
 
-## Install - install dependencies
-```bash
-yarn install
+## Developing and running the server
+
+### Start the database (first time only)
 ```
-## Build - build code
-```bash
-yarn build
+echo "PG_USER=\"postgres\"\nPG_PASS=\"super-appMapFtw\"" >> .env
+docker compose up
 ```
-## develop - watch, auto-rebuild and deploy code locally
-```bash
-yarn dev
+
+### Add .env file for local server user
 ```
-## test - run tests
-```bash
-yarn test
+cd server
+echo "PG_USER=\"us_server\"\nPG_PASS=\"appMapFtw\"" >> .env
 ```
-## run - deploy and run code locally
+
+### Watch and compile
 ```bash
-yarn run
+cd server && tsc --watch
 ```
+
+### Run Serverless api offline
+```bash
+cd server && serverless offline start
+```
+
+### Test API using postman (collection included)
+Load the included postman collection (server/postman) into your postman client to test the API
 
 # Original Prompt
 

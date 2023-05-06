@@ -1,0 +1,33 @@
+<mat-card class="lookup-card">
+  <mat-card-header>
+    <mat-card-title>Lookup the original link</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Find out where your link goes! Enter your short link and click "Collegamento Lungo!"
+    </p>
+    <form [formGroup]="linkForm" (submit)="onSubmit()">
+      <mat-form-field class="short-link-field" appearance="fill">
+        <mat-label>Short Link</mat-label>
+        <input matInput id="short-url" type="url" formControlName="shortUrl"
+          placeholder="https://hostname/c0rt1P45t4">
+        <mat-hint>
+          Link must start with protocol, i.e. "https://".
+        </mat-hint>
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary">Collegamento Lungo!</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="lookup-card" *ngIf="submitted == true || origUrl !== ''">
+  <mat-card-content>
+    <p *ngIf="origUrl">
+      Here's your shortlink: <a href="{{origUrl}}">"{{origUrl}}"</a>
+    </p>
+    <mat-spinner *ngIf="submitted == true"></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button [cdkCopyToClipboard]="origUrl"><mat-icon>content_copy</mat-icon>Copy Pasta!</button>
+  </mat-card-actions>
+</mat-card>

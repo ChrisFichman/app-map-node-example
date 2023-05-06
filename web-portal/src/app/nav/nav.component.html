@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === true">
+    <mat-toolbar color="secondary" >Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/about">About Corti</a>
+      <a mat-list-item routerLink="/create">Create a short URL</a>
+      <a mat-list-item routerLink="/lookup">Lookup a short URL</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Corti!</span>
+      <span class="navbar-spacer"></span>
+      <a mat-button routerLink="/about">
+        About
+      </a>
+      <a mat-button routerLink="/create">
+        Create
+      </a>
+      <a mat-button routerLink="/lookup">
+        Lookup
+      </a>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
