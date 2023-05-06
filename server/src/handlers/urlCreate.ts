@@ -19,12 +19,16 @@ export async function handler(event : any, context : any, callback : Function) {
   // Check if we already have an entry for the url
   try {
     const result = await mapperService.getShortUrl(origUrl.href);
-    if(result.length > 0) {
+    if(result?.length > 0) {
+      console.log(`Short URL for "${origUrl.href}" already exists: ${result[0]}`)
       const response = {
         statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
         body: JSON.stringify({
-          message: `Your short URL is: ${result[0]}`,
-          input: event,
+          shortUrl: result[0],
         }),
       };
       callback(null, response);
@@ -47,12 +51,15 @@ export async function handler(event : any, context : any, callback : Function) {
   // Create a mapping entry in the db for the URL
   try {
     const mapping = await mapperService.createUrlMapping(origUrl.href, shortUrl.href);
-    console.log(`Inserted new map to database: ${mapping.toString()}`);
+    console.log(`Inserted new map to database: ${JSON.stringify({origUrl: origUrl.href, shortUrl: shortUrl.href})}`);
     const response = {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
+      },
       body: JSON.stringify({
-        message: `Short url created: ${shortUrl.href}`,
-        input: event
+        shortUrl: shortUrl.href,
       })
     }
     callback(null, response);
@@ -66,6 +73,10 @@ const handleServiceError = (err: any, event: any, callback: Function) => {
   console.error(err);
   const response = {
     statusCode: 500,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     body: JSON.stringify({
       message: `An unexpected error occurred.`,
       input: event
@@ -78,6 +89,10 @@ const handleUserError = (err: any, event: any, callback: Function) => {
   console.error(err);
   const response = {
     statusCode: 400,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     body: JSON.stringify({
       message: err.message,
       input: event

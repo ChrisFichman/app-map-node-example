@@ -10,13 +10,13 @@ export class MapperService {
   public async getOriginalUrl(shortUrl:string) : Promise<string> {
     const query = this.dbClient.from('url.map').where('short_url',shortUrl).limit(1);
     const result = await query.pluck('orig_url');
-    console.log(result.toString())
-    return result[0]
+    return result;
   }
 
   public async getShortUrl(origUrl:string) : Promise<any[]>{
-    const query = this.dbClient.from('url.map').where('orig_url',origUrl);
-    return await query.select('short_url');
+    const query = this.dbClient.from('url.map').where('orig_url',origUrl).limit(1);
+    const result = await query.pluck('short_url');
+    return result;
   }
 
   /**

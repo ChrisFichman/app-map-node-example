@@ -6,15 +6,24 @@
     <p>
       Enter your chonker of a link, and then click "Corti!"
     </p>
-    <mat-form-field class="original-link-field" appearance="fill">
-      <mat-label>Original Link</mat-label>
-      <input matInput placeholder="https://some.incredibly.long.somehow.mind.bogglingly.com/plicated/url/that/someone/would/dieofoldage/before/being/able?to=read">
-      <mat-hint>
-        Link must start with protocol, i.e. "https://".
-      </mat-hint>
-    </mat-form-field>
+    <form [formGroup]="linkForm" (submit)="onSubmit()">
+      <mat-form-field class="original-link-field" appearance="fill">
+        <mat-label>Original Link</mat-label>
+        <input matInput placeholder="{{linkPlaceholder}}" id="orig-url" type="url" formControlName="origUrl">
+        <mat-hint>
+          Link must start with protocol, i.e. "https://".
+        </mat-hint>
+      </mat-form-field> 
+      <button mat-raised-button type="submit" color="primary">Corti!</button>
+    </form>
+
+    <mat-card style="margin:10px" *ngIf="submitted == true || shortUrl !== ''">
+      <mat-card-content>
+        <p *ngIf="shortUrl">
+          Here's your shortlink: <a href="{{shortUrl}}">{{shortUrl}}</a>
+        </p>
+        <mat-spinner *ngIf="submitted == true"></mat-spinner>
+      </mat-card-content>
+    </mat-card>
   </mat-card-content>
-  <mat-card-actions>
-    <a mat-raised-button color="primary" onclick="generateShortlink()">Corti!</a>
-  </mat-card-actions>
 </mat-card>

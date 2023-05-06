@@ -22,12 +22,14 @@ functions:
       - httpApi:
           path: /{shortUrl}
           method: get
+          cors: false
   createUrl:
     handler: "dist/handlers/urlCreate.handler"
     events:
       - httpApi:
           path: /url
           method: post
+          cors: false
           request: 
             schemas:
               application/json: ${file(./schemas/create_url_request.json)}
