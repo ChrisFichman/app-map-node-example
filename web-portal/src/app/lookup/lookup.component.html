@@ -27,7 +27,7 @@
     </p>
     <mat-spinner *ngIf="submitted == true"></mat-spinner>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button [cdkCopyToClipboard]="origUrl"><mat-icon>content_copy</mat-icon>Copy Pasta!</button>
+  <mat-card-actions *ngIf="origUrl">
+    <button *ngIf="origUrl" mat-raised-button [cdkCopyToClipboard]="origUrl"><mat-icon>content_copy</mat-icon>Copy Pasta!</button>
   </mat-card-actions>
 </mat-card>
