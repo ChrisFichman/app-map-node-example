@@ -5,6 +5,7 @@ import { LookupComponent } from './lookup/lookup.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/about', pathMatch: 'full'},
   { path: 'about', component: AboutComponent },
   { path: 'create', component: CreateComponent },
   { path: 'lookup', component: LookupComponent },
