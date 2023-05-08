@@ -1,4 +1,6 @@
 import process from "process"
+import dotenv from 'dotenv';
+dotenv.config();
 
 const DB_CONFIG = {
   host : '127.0.0.1',
@@ -10,19 +12,29 @@ const DB_CONFIG = {
 
 const APP_CONFIG = {
   host : "localhost:3000",
+  port: 3000,
   protocol : "http"
+}
+
+const PORTAL_CONFIG = {
+  host : "localhost:4200",
+  port: 4200,
+  protocol: "http"
 }
 
 export class GlobalConfig {
   app : AppConfig
   db : DbConfig
+  portal : AppConfig
 }
 
 export class AppConfig {
   host: string;
+  port: number
   protocol : string;
   constructor(json : any = APP_CONFIG) {
     this.host = json.host;
+    this.port = json.port
     this.protocol = json.protocol;
   }
 }
@@ -45,8 +57,9 @@ export class DbConfig {
 const env = process.env.NODE_ENV || 'dev';
 
 const dev : GlobalConfig = {
-  app: new AppConfig(),
-  db : new DbConfig()
+  app : new AppConfig(),
+  db : new DbConfig(),
+  portal : new AppConfig(PORTAL_CONFIG)
 }
 
 const configs : Map<string, GlobalConfig> = new Map(); 

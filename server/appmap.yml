@@ -1,0 +1,11 @@
+name: server
+packages:
+  - path: .build
+  - path: dist
+  - path: src
+language: javascript
+appmap_dir: tmp/appmap
+exclude:
+  - node_modules
+  - dist/node_modules
+  - .build/node_modules
