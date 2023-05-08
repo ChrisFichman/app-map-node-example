@@ -3,10 +3,10 @@ Basic node service utilizing app map.
 
 # Architecture
 ## Stack
-- node-ts serverless code running on lambdas
+- node-ts serverless code running on lambdas (see express branch for express code WIP)
 - angular front-end
 - jest for testing
-- sqLite
+- containerized psql
 
 ## Development
 - Uses serverless to run locally
@@ -14,17 +14,18 @@ Basic node service utilizing app map.
 - VSCode development containers to limit local dependencies
 
 ## Pipeline
-- GH actions
+- GH actions (TBD)
 
 ## Deployed Arch (May not get around to this for the purposes of the exercise)
-- Terraform creates cloud-formation yaml
+- Terraform
 - Lambdas for node API routes
-- API gateways
-- Static code served from s3
+- API gateway
+- Static code served from R53 (angular app)
 
 ## Security
-- Very basic url shortener. No accounts or sensitive data to worry about.
-- AWS Secrets
+- AWS Secrets for PSQL account creds
+- CORS locked down on server to only allow requests from angular app host (WIP)
+- AWS IAM
 
 # Installation and Local Development Environment Setup (MacOS - Intel)
 ## Clean environment setup
@@ -63,7 +64,6 @@ nvm use default
 
 ### Install homebrew packages for development
 ```bash
-brew install aws-cdk aws/tap/aws-sam-cli
 brew install typescript yarn angular-cli
 ```
 
@@ -75,7 +75,7 @@ echo "PG_USER=\"postgres\"\nPG_PASS=\"super-appMapFtw\"" >> .env
 docker compose up
 ```
 
-### Add .env file for local server user
+### Add .env file for local server user (to be replaced by AWS secrets)
 ```
 cd server
 echo "PG_USER=\"us_server\"\nPG_PASS=\"appMapFtw\"" >> .env
