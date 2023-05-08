@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node ./dist/app.js",
-    "start-dev": "./node_modules/nodemon/bin/nodemon.js -e ts  --exec \"npm run build && npm run start\""
+    "start-dev": "./node_modules/nodemon/bin/nodemon.js -e ts  --exec \"npm run build && npm run start\"",
+    "sls-start": "./node_modules/nodemon/bin/nodemon.js -e ts  --exec \"sls offline start\""
   },
   "dependencies": {
     "dotenv": "^16.0.3",
