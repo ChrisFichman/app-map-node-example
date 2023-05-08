@@ -23,7 +23,7 @@
 <mat-card class="lookup-card" *ngIf="submitted == true || origUrl !== ''">
   <mat-card-content>
     <p *ngIf="origUrl">
-      Here's your shortlink: <a href="{{origUrl}}">"{{origUrl}}"</a>
+      Here's your original link: <a href="{{origUrl}}">"{{origUrl}}"</a>
     </p>
     <mat-spinner *ngIf="submitted == true"></mat-spinner>
   </mat-card-content>
