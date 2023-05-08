@@ -24,7 +24,7 @@ export class UrlService {
 
   getOriginalUrl(shortUrl : string) : Observable<any> {
     const path = new URL(shortUrl).pathname;
-    return this.http.get(this.routes.url+path, { observe : 'response' })
+    return this.http.get(this.routes.url+path, { observe : 'response'})
       .pipe(
         catchError(this.handleError)
       );
