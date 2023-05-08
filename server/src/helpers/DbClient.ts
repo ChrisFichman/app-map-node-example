@@ -11,7 +11,13 @@ export class DbHelper {
   public getConnection(dbConfig : DbConfig = this.dbConfig) : Knex {
     return knex({
       client: 'pg',
-      connection: dbConfig
+      connection: {
+        host: dbConfig.host,
+        port: dbConfig.port,
+        user: process.env.PG_USER,
+        password: process.env.PG_PASS,
+        database: dbConfig.database
+      }
     });
   }
 }

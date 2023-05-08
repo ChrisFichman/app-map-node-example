@@ -1,4 +1,6 @@
 import process from "process"
+import dotenv from 'dotenv';
+dotenv.config();
 
 const DB_CONFIG = {
   host : '127.0.0.1',

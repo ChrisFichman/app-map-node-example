@@ -1,9 +1,6 @@
 import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
-dotenv.config();
-
-import { MapperService } from "./services/Mapper.js";
 import config from './helpers/Config.js';
+import { MapperService } from "./services/Mapper.js";
 
 const app: Express = express();
 const port = config.app.port;
